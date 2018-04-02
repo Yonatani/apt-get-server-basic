@@ -13,3 +13,7 @@ bootstrap:
 
 
 
+# To make grapihql work
+1. use : http://localhost:3000/graphiql
+2. add chorme extensio : ModHeader - https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj/related
+3. add: authorization(left side) and token(right side - "Bearer eys3c....")
