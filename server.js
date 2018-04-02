@@ -39,7 +39,7 @@ app.use('/graphql', bodyParser.json(), async (req, res, next) => {
     },
 })));
 
-app.use('/graphql', graphiqlExpress({
+app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
     subscriptionsEndpoint: `ws://localhost:${GRAPHQL_PORT}/subscriptions`
 }));
