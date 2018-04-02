@@ -44,16 +44,6 @@ app.use('/graphql', graphiqlExpress({
     subscriptionsEndpoint: `ws://localhost:${GRAPHQL_PORT}/subscriptions`
 }));
 
-const ws = createServer(app);
-
-// ws.listen(GRAPHQL_PORT, () => {
-//     console.log(`Apollo Server is now running on http://localhost:${GRAPHQL_PORT}`);
-//
-//     // Set up the WebSocket for handling GraphQL subscriptions
-//
-//
-// });
-
 const engine = new ApolloEngine({
     apiKey: `service:Yonatani-9535:srHFL2UBA957BR7mikkCLQ`,
     stores: [
