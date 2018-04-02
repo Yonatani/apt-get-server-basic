@@ -3,18 +3,24 @@ import resolvers from './resolvers';
 
 const typeDefs = `
 type Query {
+  # get all of the user polygons
   allPolygons: [Polygon]!
+  # get users preferences(city, numberOfRooms, price)
   getUserPreferences: userPreference!
-  getFortuneCookie: String @cacheControl(maxAge: 5)
   jwt: String
 }
 type Mutation {
+  # find a user or create if doesnt exists, and sends back token
   findOrCreateUser(userData: UserInput!): jwt
+  # add a polygon to user's polygons array
   addPolygon(polygon: PolygonInput): [Polygon]
+  # remove a polygon from user's polygons array
   removePolygon(polygonId: ID!): Polygon
+  # update user's preferences
   updateUserPreferences(newPreferences: userPreferenceInput!): userPreference
 }
 type Subscription {
+  # websocket to update client with changes on user's polygons 
   updatePolygons: [Polygon]!
 }
 input PolygonInput {
@@ -37,6 +43,7 @@ type User {
   userPreference: userPreference!
 }
 type userPreference {
+    # cityId, the cities array exists on the client.
     cityId: Int!
     numberOfRooms: Int!
     price: [Int!]!
