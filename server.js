@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import {createServer} from 'http';
 import compression from 'compression';
 import {ApolloEngine} from 'apollo-engine';
+import JWT_SECRET from './config'
 
 import {SubscriptionServer} from 'subscriptions-transport-ws';
 import {execute, subscribe} from 'graphql';
@@ -24,7 +25,7 @@ app.use(morgan('common'))
 // `context` must be an object and can't be undefined when using connectors
 app.use('/graphql', bodyParser.json(), async (req, res, next) => {
     if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
-        const decoded = jwt.verify(req.headers.authorization.split(' ')[1], 'stanDaten');
+        const decoded = jwt.verify(req.headers.authorization.split(' ')[1], JWT_SECRET);
         const user = await User.findOne({_id: decoded.id})
         req.user = user
     }
