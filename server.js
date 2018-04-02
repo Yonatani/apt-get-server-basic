@@ -68,7 +68,7 @@ engine.listen({
         startupTimeout: 3000,
     },
 }, () => {
-    console.log('Listening!');
+    console.log('Listening on port 3000!');
     SubscriptionServer.create({
             execute,
             subscribe,
