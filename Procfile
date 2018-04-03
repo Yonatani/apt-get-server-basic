@@ -1,1 +1,1 @@
-web: npm run start -p 3000
+web: npm run start -p $PORT

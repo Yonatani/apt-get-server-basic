@@ -67,9 +67,6 @@ engine.listen({
     port: GRAPHQL_PORT,
     graphqlPaths: ['/graphql', '/subscriptions'],
     expressApp: app,
-    launcherOptions: {
-        startupTimeout: 3000,
-    },
 }, () => {
     console.log('Listening on port 3000!');
     SubscriptionServer.create({
