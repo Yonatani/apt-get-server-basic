@@ -45,7 +45,7 @@ app.use('/graphql', bodyParser.json(), async (req, res, next) => {
 
 app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql',
-    subscriptionsEndpoint: `ws://localhost:${GRAPHQL_PORT}/subscriptions`
+    subscriptionsEndpoint: `ws://apt-get-server.herokuapp.com/subscriptions`
 }));
 
 const engine = new ApolloEngine({
