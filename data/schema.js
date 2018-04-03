@@ -3,11 +3,13 @@ import resolvers from './resolvers';
 
 const typeDefs = `
 type Query {
-  # get all of the user polygons
-  allPolygons: [Polygon]!
+  # get user profile
+  getUserProfile: User!
   # get users preferences(city, numberOfRooms, price)
   getUserPreferences: userPreference!
   jwt: String
+  # get all of the user polygons
+  allPolygons: [Polygon]!
 }
 type Mutation {
   # find a user or create if doesnt exists, and sends back token

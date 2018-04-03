@@ -13,6 +13,9 @@ const resolvers = {
         },
         getUserPreferences(_, args, ctx) {
             return ctx.user.userPreference;
+        },
+        getUserProfile(_, args, ctx) {
+            return ctx.user;
         }
     },
     Mutation: {
