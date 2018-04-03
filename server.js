@@ -6,14 +6,14 @@ import bodyParser from 'body-parser';
 import {createServer} from 'http';
 import compression from 'compression';
 import {ApolloEngine} from 'apollo-engine';
-import JWT_SECRET from './config'
+import {JWT_SECRET, PORT} from './config'
 
 import {SubscriptionServer} from 'subscriptions-transport-ws';
 import {execute, subscribe} from 'graphql';
 import schema from './data/schema';
 import jwt from 'jsonwebtoken';
 
-const GRAPHQL_PORT = 3000;
+const GRAPHQL_PORT = PORT || 3000;
 
 import morgan from 'morgan';
 
@@ -68,7 +68,7 @@ engine.listen({
     graphqlPaths: ['/graphql', '/subscriptions'],
     expressApp: app,
 }, () => {
-    console.log('Listening on port 3000!');
+    console.log(`Listening on port ${GRAPHQL_PORT}!`);
     SubscriptionServer.create({
             execute,
             subscribe,
