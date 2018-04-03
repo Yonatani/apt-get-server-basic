@@ -27,6 +27,7 @@
     "subscriptions-transport-ws": "^0.9.7"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "nodemon": "^1.12.1"
@@ -37,7 +38,10 @@
     ]
   },
   "scripts": {
-    "start": "nodemon ./server.js --exec babel-node"
+    "staraaat": "nodemon ./server.js --exec babel-node",
+    "server": "nodemon server.js --exec babel-node",
+    "heroku-postbuild": "npm install",
+    "start": "babel-node server.js"
   },
   "repository": {
     "type": "git",

@@ -1,1 +1,1 @@
-web: node server.js --exec babel-node
+web: npm run start
