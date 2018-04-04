@@ -24,10 +24,8 @@ app.use(morgan('common'))
 
 // `context` must be an object and can't be undefined when using connectors
 app.use('/graphql', bodyParser.json(), async (req, res, next) => {
-    console.log('req header',req.headers)
     if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
         const decoded = jwt.verify(req.headers.authorization.split(' ')[1], JWT_SECRET);
-        console.log('decoded',decoded)
         const user = await User.findOne({_id: decoded.id})
         req.user = user
     }
